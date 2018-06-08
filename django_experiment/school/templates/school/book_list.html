@@ -1,0 +1,10 @@
+{% extends "school/school_base.html" %}
+{% load humanize %}
+
+{% block school_content %}
+<div class="col-md-12">
+	{% for book in book_list %}
+  {% include "school/_book.html" %}
+	{% endfor %}
+</div>
+{% endblock %}

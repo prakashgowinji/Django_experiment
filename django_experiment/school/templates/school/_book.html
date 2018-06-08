@@ -1,0 +1,12 @@
+<div class="post media">
+
+	<div class="media-body">
+		<h5 class="media-heading">
+			{% if book.title %}
+			<span class="group-name"><a href="#">{{ book.title }}</a></span>
+      <span class="group-name">by <a href="#">{{ book.author }}</a></span>
+      <span class="group-name">, and Price is Rs. <a href="#">{{ book.price }}</a></span>
+			{% endif %}
+		</h5>
+	</div>
+</div>
