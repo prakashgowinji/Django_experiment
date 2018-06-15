@@ -1,6 +1,53 @@
 body {
   margin: 0;
   overflow: hidden;
-  background-color: black;
+  background-color: #F8F8F8;
   color:white;
+}
+
+h4 {
+  color: #263E2C;
+}
+
+p {
+  color: #263E2C
+}
+
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    height:300px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 8px 8px 16px 8px rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.card_container {
+    padding: 16px 16px 16px 16px;
+}
+
+/* Adding constant image size */
+.book_img {
+  width: 100%;
+  height: 50%;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, tr {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
 }

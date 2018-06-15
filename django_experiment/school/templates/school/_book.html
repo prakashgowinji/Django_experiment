@@ -1,12 +1,14 @@
-<div class="post media">
+{% load static %}
+{% block book_book %}
+<div class="col-md-3" style="padding:12px" >
+		<div class="card">
+		  <img class="book_img" src="{% static "school/bird.jpg" %}" alt={{ book.title }}>
 
-	<div class="media-body">
-		<h5 class="media-heading">
-			{% if book.title %}
-			<span class="group-name"><a href="#">{{ book.title }}</a></span>
-      <span class="group-name">by <a href="#">{{ book.author }}</a></span>
-      <span class="group-name">, and Price is Rs. <a href="#">{{ book.price }}</a></span>
-			{% endif %}
-		</h5>
-	</div>
-</div>
+		  <div class="card_container">
+		    <h4><b>{{ book.title }}</b></h4>
+		    <p>{{ book.author }}</p>
+				<p>Price: {{ book.price }} /- </p>
+		  </div>
+		</div>
+		</div>
+{% endblock %}
