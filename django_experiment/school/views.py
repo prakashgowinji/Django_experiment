@@ -8,10 +8,29 @@ from . import models
 from django.core.urlresolvers import reverse_lazy
 from django.http import Http404
 from django.views import generic
+from .models import Book
+from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
+
+
+@login_required
+def display_books(request):
+    book_list = Book.objects.all()
+    page = request.GET.get('page', 1)
+    paginator = Paginator(book_list, 8)
+
+    try:
+        books = paginator.page(page)
+    except PageNotAnInteger:
+        books = paginator.page(1)
+    except EmptyPage:
+        books = paginator.page(paginator.num_pages)
+
+    return render(request, "school/book_list.html", {"books": books})
 
 class BookList(SelectRelatedMixin, generic.ListView):
     model = models.Book

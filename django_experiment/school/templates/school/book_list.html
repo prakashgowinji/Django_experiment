@@ -3,8 +3,31 @@
 
 {% block school_content %}
 <div class="col-md-12">
-	{% for book in book_list %}
+	{% for book in books %}
   {% include "school/_book.html" %}
 	{% endfor %}
 </div>
+
+{% if books.has_other_pages %}
+  <ul class="pagination">
+    {% if books.has_previous %}
+      <li><a href="?page={{ books.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in books.paginator.page_range %}
+      {% if books.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if books.has_next %}
+      <li><a href="?page={{ books.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+
 {% endblock %}
