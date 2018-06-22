@@ -2,9 +2,11 @@
 {% load humanize %}
 
 {% block school_content %}
-<div class="col-md-12">
+<div class="col-md-12 infinite-container">
 	{% for book in books %}
-  {% include "school/_book.html" %}
+	<div class="infinite-item">
+  	{% include "school/_book.html" %}
+	</div>
 	{% endfor %}
 </div>
 
